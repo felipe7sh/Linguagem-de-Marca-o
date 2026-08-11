@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Horários</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .hora-atual {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .horarios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: #1f2937;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+
+            border: 2px solid transparent;
+        }
+
+        .card.proximo {
+            border: 2px solid #3b82f6;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            margin: 0 0 15px;
+        }
+
+        .tempo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .status {
+            margin-top: 8px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 600px) {
+            .horarios {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Horários</h1>
+
+        <div class="hora-atual">
+            Hora atual:
+            <span id="horaAtual">Carregando...</span>
+        </div>
+
+        <div class="horarios">
+
+            <div class="card" id="card-0945">
+                <h2>09:45</h2>
+                <div class="tempo" id="tempo-0945">
+                    Carregando...
+                </div>
+                <div class="status">
+                    Tempo restante
+                </div>
+            </div>
+
+            <div class="card" id="card-1130">
+                <h2>11:30</h2>
+                <div class="tempo" id="tempo-1130">
+                    Carregando...
+                </div>
+                <div class="status">
+                    Tempo restante
+                </div>
+            </div>
+
+            <div class="card" id="card-1525">
+                <h2>15:25</h2>
+                <div class="tempo" id="tempo-1525">
+                    Carregando...
+                </div>
+                <div class="status">
+                    Tempo restante
+                </div>
+            </div>
+
+            <div class="card" id="card-1710">
+                <h2>17:10</h2>
+                <div class="tempo" id="tempo-1710">
+                    Carregando...
+                </div>
+                <div class="status">
+                    Tempo restante
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const horarios = [
+            "09:45",
+            "11:30",
+            "15:25",
+            "17:10"
+        ];
+
+        let horaAtual = null;
+
+
+        async function obterHora() {
+
+            try {
+
+                const resposta = await fetch(
+                    "https://timeapi.io/api/time/current/zone?timeZone=America/Sao_Paulo"
+                );
+
+                const dados = await resposta.json();
+
+                horaAtual = new Date(
+                    dados.year,
+                    dados.month - 1,
+                    dados.day,
+                    dados.hour,
+                    dados.minute,
+                    dados.seconds
+                );
+
+                atualizar();
+
+            } catch (erro) {
+
+                console.log("Erro na API:", erro);
+
+                horaAtual = new Date();
+
+                atualizar();
+            }
+        }
+
+
+        function formatarTempo(segundos) {
+
+            const horas = Math.floor(segundos / 3600);
+
+            const minutos = Math.floor(
+                (segundos % 3600) / 60
+            );
+
+            const segundosRestantes = segundos % 60;
+
+
+            if (horas > 0) {
+
+                return (
+                    horas +
+                    "h " +
+                    minutos +
+                    "min " +
+                    segundosRestantes +
+                    "s"
+                );
+
+            }
+
+
+            return (
+                minutos +
+                "min " +
+                segundosRestantes +
+                "s"
+            );
+        }
+
+
+        function atualizar() {
+
+            if (!horaAtual) {
+                return;
+            }
+
+
+            const agora = new Date();
+
+
+            horaAtual.setSeconds(
+                horaAtual.getSeconds() + 1
+            );
+
+
+            document.getElementById("horaAtual").textContent =
+                horaAtual.toLocaleTimeString("pt-BR");
+
+
+            let menorTempo = Infinity;
+            let proximoId = null;
+
+
+            horarios.forEach(function(horario) {
+
+                const partes = horario.split(":");
+
+                const hora = Number(partes[0]);
+                const minuto = Number(partes[1]);
+
+
+                const destino = new Date(horaAtual);
+
+                destino.setHours(
+                    hora,
+                    minuto,
+                    0,
+                    0
+                );
+
+
+                if (destino <= horaAtual) {
+
+                    destino.setDate(
+                        destino.getDate() + 1
+                    );
+
+                }
+
+
+                const diferenca =
+                    Math.floor(
+                        (destino.getTime() -
+                        horaAtual.getTime()) / 1000
+                    );
+
+
+                const id =
+                    horario.replace(":", "");
+
+
+                document.getElementById(
+                    "tempo-" + id
+                ).textContent =
+                    formatarTempo(diferenca);
+
+
+                if (diferenca < menorTempo) {
+
+                    menorTempo = diferenca;
+
+                    proximoId = id;
+
+                }
+
+            });
+
+
+            document.querySelectorAll(".card")
+                .forEach(function(card) {
+
+                    card.classList.remove("proximo");
+
+                });
+
+
+            if (proximoId) {
+
+                document.getElementById(
+                    "card-" + proximoId
+                ).classList.add("proximo");
+
+            }
+
+        }
+
+
+        obterHora();
+
+
+        setInterval(function() {
+
+            atualizar();
+
+        }, 1000);
+
+
+        setInterval(function() {
+
+            obterHora();
+
+        }, 60000);
+
+    </script>
+
+</body>
+
+</html>
