@@ -1,0 +1,118 @@
+
+
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+nav,
+aside {
+    padding: 20px;
+}
+
+header {
+    background: #1b252f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    margin: 0 30px;
+}
+
+nav a {
+    color: #639fee; 
+    text-decoration: none;
+    font-weight: bold; 
+    margin: 0 10px; 
+}
+
+
+
+aside {
+    background: #eee;
+    
+}
+
+
+
+article a {
+display: inline-block;
+background-color: #3498db;
+color: #ffffff;
+padding: 8px 15px;
+text-decoration: none;
+border-radius: 4px;
+font-size: 0.9rem;
+transition: background-color 0.3s;
+}
+
+article a:hover {
+background-color: #2980b9;   /* nova cor */
+}
+
+.data {
+    color: gray;
+    margin: 0;
+}
+
+.publicado {
+    margin: 5px 0 0 0;
+}
+
+.titulos {
+    color: rgb(18, 40, 61);
+    font-weight: bolder;
+}
+
+#titulo-topo {
+    color: rgb(18, 40, 61);
+    border-bottom: solid 3px #3498db;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#titulo-topo article h2 {
+    margin: 30px 0 0 0;
+    font-weight: bolder;
+}
+
+.lateral {
+    background-color: #eef2f5;
+    border-left: solid 4px #639fee;
+    border-radius: 5px;
+    margin: 30px;
+    height: 120px;
+    width: 220px;
+}
+
+#rodape {    
+    border-top: 1px solid #c7c7c7;
+    margin: auto 30px 030px 30px;
+}
+
+#rodape p {
+    color: #a1a1a1;
+    text-align: center;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    margin: 10px 20%;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 6px #bbb;
+    margin-top: 20px;
+}
