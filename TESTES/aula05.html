@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portal Tecnologia</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+3D&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <header>
@@ -15,6 +22,7 @@
         <a href="#contato">Contato</a>
       </nav>
     </header>
+
     <div class="layout">
       <main>
         <section id="titulo-topo">
@@ -28,28 +36,18 @@
             <p class="publicado">Publicado em:</p>
             <small class="data">17 de Agosto de 2026</small>
             <p>O HTML semântico melhor a acessibilidade e o SEO do seu site...</p>
-            <a href="">Ler mais</a>
-          </article>
-        </section>
-
-        <section class="card">
-          <article>
-            <h2 class="titulos">Dicas de CSS FlexBox</h2>
-            <p class="publicado">Publicado em:</p>
-            <small class="data">15 de Agosto de 2026</small>
-            <p>Aprenda a alinhar elementos na tela de forma simples e rápida...</p>
-            <a href="">Ler mais</a>
+            <p id="lermais"></p>  
+            <button id="botao" onclick="mostrarTexto()">Ler mais</button>
           </article>
         </section>
       </main>
 
       <aside class="lateral">
         <section>
-          <h3>Sobre o Autor</h3>
+          <h3>Sobre o Autor </h3>
           <p>Desenvolvedor front-end apaixonado por criar códigos limpos e acessíveis.</p>
         </section>
       </aside>
-      
     </div>
 
     <footer id="rodape">
@@ -57,3 +55,26 @@
     </footer>
   </body>
 </html>
+
+<script>
+
+  
+function mostrarTexto() {
+  const textoCompleto = "A semântica HTML é o uso correto das tags para dar significado ao conteúdo de uma página web, em vez de definir apenas a sua aparência visual.";
+  const paragrafo = document.getElementById("lermais");
+  const botao = document.getElementById("botao")
+
+  if (paragrafo.textContent === "") 
+  {
+    paragrafo.textContent = textoCompleto;
+    botao.textContent = "Ler menos"
+  }
+
+  else 
+  {
+    paragrafo.textContent = ""
+    botao.textContent = "Ler mais"
+  }
+}
+
+</script>
