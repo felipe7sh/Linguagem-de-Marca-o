@@ -10,7 +10,7 @@ body {
     display: grid;
     place-items: center;
     font-family: 'Inter', Arial;
-    background-image: url('/img/fundo.jpg');
+    background-image: url('../img/fundo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
