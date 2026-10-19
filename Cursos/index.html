@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Acadêmico - Cadastro de Alunos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <strong>SENAI</strong>
+        <span class="ms-2">Sistema Acadêmico</span>
+      </a>
+      <span class="text-white">Olá, Professor</span>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3">
+        <h6 class="text-white mb-3">MENU</h6>
+        <div class="list-group">
+          <a href="professor.html" class="list-group-item list-group-item-action">Professor</a>
+          <a href="index.html" class="list-group-item list-group-item-action active">Alunos</a>
+          <a href="cursos.html" class="list-group-item list-group-item-action">Cursos</a>
+          <a href="turmas.html" class="list-group-item list-group-item-action">Turmas</a>
+          <a href="regras.html" class="list-group-item list-group-item-action">Regras</a>
+        </div>
+      </aside>
+
+      <main class="col-md-9 col-lg-10 p-4">
+        <div class="mb-4">
+          <h2>Cadastro de Aluno</h2>
+          <p class="text-muted">
+            Preencha os dados abaixo para cadastrar um novo aluno.
+          </p>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <strong>Dados do aluno</strong>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="Nome" class="form-label">Nome completo</label>
+                  <input type="text" class="form-control" id="Nome" placeholder="Digite o nome completo do aluno" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="Email" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="Email" placeholder="Digite o e-mail do aluno" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="DataNascimento" class="form-label">Data de Nascimento</label>
+                  <input type="date" class="form-control" id="DataNascimento" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label d-block">Turno</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Turno" id="TurnoManha" value="manha" />
+                    <label class="form-check-label" for="TurnoManha">Manhã</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Turno" id="TurnoTarde" value="tarde" />
+                    <label class="form-check-label" for="TurnoTarde">Tarde</label>
+                  </div>
+                  <div class="form-check form-check-inline mb-3">
+                    <input class="form-check-input" type="radio" name="Turno" id="TurnoNoite" value="noite" />
+                    <label class="form-check-label" for="TurnoNoite">Noite</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Ativo" checked />
+                    <label class="form-check-label" for="Ativo">Aluno ativo</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="Curso" class="form-label">Curso</label>
+                  <select class="form-select" id="Curso">
+                    <option selected disabled>Selecione o curso</option>
+                    <option value="1">Desenvolvimento de Sistemas</option>
+                    <option value="2">Administração</option>
+                    <option value="3">Segurança do Trabalho</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="Observacoes" class="form-label">Observações</label>
+                  <textarea class="form-control" id="Observacoes" rows="3" placeholder="Digite observações sobre o aluno"></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <button type="reset" class="btn btn-secondary me-2">Limpar</button>
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
