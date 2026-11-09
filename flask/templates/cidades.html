@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAI-SP | Cadastro de Cidades</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- MENU SUPERIOR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-senai">
+
+        <div class="container-fluid px-4">
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <i class="bi bi-house-door me-1"></i>
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-building me-1"></i>
+                            Empresas
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-building me-1"></i>
+                            Cidades
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-bar-chart me-1"></i>
+                            Relatórios
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-gear me-1"></i>
+                            Configurações
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER INSTITUCIONAL -->
+
+    <header class="institutional-header">
+
+        <div class="container-fluid px-4">
+
+            <div class="row align-items-center">
+
+                <div class="col-5 col-md-3">
+
+                    <img
+                        src="{{ url_for('static', filename='img/senai.png') }}"
+                        alt="SENAI São Paulo"
+                        class="senai-logo">
+
+                </div>
+
+                <div class="col-7 col-md-9 text-end">
+
+                    <div class="header-title">
+                        Sistema de Gestão
+                    </div>
+
+                    <div class="header-subtitle">
+                        Serviço Nacional de Aprendizagem Industrial
+                        | Departamento Regional de São Paulo
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container main-container">
+
+        <!-- BREADCRUMB -->
+        <nav aria-label="breadcrumb">
+
+            <ol class="breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="/" class="text-decoration-none">
+                        Início
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    Cadastros
+                </li>
+
+                <li class="breadcrumb-item active">
+                    Cidades
+                </li>
+
+            </ol>
+
+        </nav>
+
+
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="mb-4">
+
+            <h1 class="page-title">
+                <i class="bi bi-geo-alt me-2"></i>
+                Cadastro de Cidades
+            </h1>
+
+            <p class="page-description">
+                Utilize o formulário abaixo para cadastrar uma nova cidade no sistema.
+            </p>
+
+        </div>
+
+
+        <!-- FORMULÁRIO -->
+        <div class="form-card">
+
+            <div class="form-card-header">
+
+                <div class="d-flex align-items-center">
+
+                    <i class="bi bi-file-earmark-plus fs-4 me-3"
+                       style="color: var(--senai-orange);"></i>
+
+                    <div>
+
+                        <h5 class="mb-0 fs-6 fw-semibold">
+                            Dados da cidade
+                        </h5>
+
+                        <small class="text-muted">
+                            Preencha as informações solicitadas
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-card-body">
+
+                <form action="/cadastrar_cidade" method="POST">
+
+                    <h6 class="section-title">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Informações gerais
+                    </h6>
+
+
+                    <div class="row">
+            <!-- FORMULÁRIO AQUII.... -->
+
+                        <div class="col-md-8 mb-4">
+                            <label for="nome" class="form-label">
+                                Nome da cidade *
+                            </label>
+                            <input type="text" 
+                            class="form-control" 
+                            id="nome" 
+                            name="cidade" 
+                            required>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <label for="estado" class="form-label">
+                                Estado
+                            </label>
+                            <select class="form-select"
+                                name="estado" required>
+                            <option value="">Selecione</option>
+                            <option value="Sp">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <label for="nome" class="form-label">
+                                Código IBGE
+                            </label>
+                            <input type="text" 
+                            class="form-control" 
+                            name="ibge" 
+                            maxlength="7">
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <label for="populacao" class="form-label">
+                                População estimada
+                            </label>
+                            <input type="number" 
+                            class="form-control" 
+                            name="populacao" 
+                            min="0">
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <label for="regiao" class="form-label">
+                                Região
+                            </label>
+                            <select class="form-select"
+                                name="regiao" required>
+                                <option value="">Selecione</option>
+                                <option value="Norte">Norte</option>
+                                <option value="Nordeste">Nordeste</option>
+                                <option value="Centro-Oeste">Centro-Oeste</option>
+                                <option value="Sudeste">Sudeste</option>
+                                <option value="Sul">Sul</option>
+                            </select>
+                        </div>
+
+
+                    <hr class="my-4">
+
+
+                    <!-- AÇÕES -->
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                        <small class="text-muted">
+                            <span class="text-danger">*</span>
+                            Campos obrigatórios
+                        </small>
+
+                        <div class="d-flex gap-2">
+
+                            <button
+                                type="reset"
+                                class="btn btn-outline-secondary">
+
+                                <i class="bi bi-x-circle me-1"></i>
+                                Limpar
+
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn btn-senai">
+
+                                <i class="bi bi-check-circle me-1"></i>
+                                Cadastrar cidade
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFORMAÇÃO INFERIOR -->
+        <div class="text-center mt-4">
+
+            <small class="text-muted">
+                SENAI-SP | Sistema de Gestão de Cadastros
+            </small>
+
+        </div>
+
+    </main>
+
+
+    <!-- BARRA DE STATUS -->
+
+    <footer class="status-bar">
+
+        <div>
+            <span class="status-dot"></span>
+            <span class="status-indicator">Sistema operacional</span>
+        </div>
+
+        <div class="status-right">
+            Ambiente: Desenvolvimento
+            &nbsp; | &nbsp;
+            Usuário: Administrador
+            &nbsp; | &nbsp;
+            SENAI-SP
+        </div>
+
+    </footer>
+
+
+    <!-- BOOTSTRAP JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>

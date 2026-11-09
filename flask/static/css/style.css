@@ -1,0 +1,202 @@
+:root {
+    --senai-blue: #164194;
+    --senai-orange: #E84910;
+    --senai-light: #F3F5F8;
+    --senai-text: #343A40;
+}
+
+body {
+    background-color: var(--senai-light);
+    color: var(--senai-text);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 55px;
+}
+
+/* MENU SUPERIOR */
+
+.navbar-senai {
+    background-color: var(--senai-blue);
+    min-height: 52px;
+}
+
+.navbar-senai .nav-link {
+    color: rgba(255,255,255,.85);
+    font-size: 14px;
+    padding: 15px 18px;
+}
+
+.navbar-senai .nav-link:hover,
+.navbar-senai .nav-link.active {
+    background-color: rgba(255,255,255,.12);
+    color: #fff;
+}
+
+/* HEADER */
+
+.institutional-header {
+    background: #fff;
+    border-bottom: 3px solid var(--senai-orange);
+    padding: 20px 0;
+}
+
+.senai-logo {
+    max-width: 190px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--senai-blue);
+    margin-bottom: 3px;
+}
+
+.header-subtitle {
+    font-size: 13px;
+    color: #777;
+}
+
+/* CONTEÚDO */
+
+.main-container {
+    max-width: 1100px;
+    margin: 35px auto;
+}
+
+.breadcrumb {
+    font-size: 13px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--senai-blue);
+}
+
+.page-description {
+    font-size: 14px;
+    color: #777;
+}
+
+/* CARD */
+
+.form-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+.form-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-card-body {
+    padding: 28px 24px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--senai-blue);
+    margin-bottom: 22px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.form-control,
+.form-select {
+    min-height: 42px;
+    font-size: 14px;
+    border-color: #d9dee5;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--senai-blue);
+    box-shadow: 0 0 0 .2rem rgba(22,65,145,.12);
+}
+
+/* BOTÕES */
+
+.btn-senai {
+    background: var(--senai-blue);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    font-size: 14px;
+}
+
+.btn-senai:hover {
+    background: #103273;
+    color: white;
+}
+
+.btn-outline-secondary {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+/* BARRA DE STATUS */
+
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 38px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    font-size: 12px;
+    color: #666;
+    z-index: 1000;
+}
+
+.status-indicator {
+    color: #198754;
+    font-weight: 600;
+}
+
+.status-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    background: #198754;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+@media (max-width: 576px) {
+
+    .senai-logo {
+        max-width: 130px;
+    }
+
+    .header-title {
+        font-size: 16px;
+    }
+
+    .form-card-body {
+        padding: 20px 16px;
+    }
+
+    .status-bar {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .status-right {
+        display: none;
+    }
+}
+
