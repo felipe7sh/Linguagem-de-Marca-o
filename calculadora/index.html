@@ -36,61 +36,41 @@
                         </h4>
 
                         <p class="text-muted">
-                            Informe 2 valores
+                            Informe os 4 valores
                         </p>
 
                         <form id="formIMC">
 
                             <div class="mb-3">
-                                <label for="valor1" class="form-label">
-                                    Valor 1
-                                </label>
+                                <label for="distancia" class="form-label">Distância percorrida (km)</label>
+                                <input type="number" class="form-control" id="distancia"
+                                       placeholder="Ex: 100" min="0.01" step="any" required>
+                            </div>
 
-                                <input type="number"
-                                       class="form-control"
-                                       id="valor1"
-                                       placeholder="Ex: 10"
-                                       min="0.1"
-                                       step="any"
-                                       required>
+                                                        <div class="mb-3">
+                                <label for="combustivel" class="form-label">Combustível abastecido (litros)</label>
+                                <input type="number" class="form-control" id="combustivel"
+                                       placeholder="Ex: 30" min="0.01" step="any" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="valor2" class="form-label">
-                                    Valor 2
-                                </label>
-
-                                <input type="number"
-                                       class="form-control"
-                                       id="valor2"
-                                       placeholder="Ex: 20"
-                                       min="0.1"
-                                       step="any"
-                                       required>
+                                <label for="preco" class="form-label">Preço do litro (R$)</label>
+                                <input type="number" class="form-control" id="preco"
+                                       placeholder="Ex: 6.50" min="0.01" step="any" required>
                             </div>
 
                             <div class="mb-4">
-                                <label for="imc" class="form-label">
-                                    Resultado
-                                </label>
-
-                                <input type="number"
-                                       class="form-control"
-                                       id="resultado"
-                                       placeholder="Resultado"
-                                       readonly>
+                                <label for="capacidade" class="form-label">Capacidade do tanque (litros)</label>
+                                <input type="number" class="form-control" id="capacidade"
+                                       placeholder="Ex: 60" min="0.01" step="any" required>
                             </div>
 
                             <div class="d-flex gap-2">
 
-                                <button type="reset"
-                                        class="btn btn-outline-secondary w-50">
-                                    Resetar
+                                <button type="reset"class="btn btn-outline-secondary w-50"> Resetar
                                 </button>
 
-                                <button type="submit"
-                                        class="btn btn-senai w-50">
-                                    Calcular
+                                <button type="submit"class="btn btn-senai w-50">Calcular
                                 </button>
 
                             </div>
