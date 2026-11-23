@@ -1,0 +1,50 @@
+
+body {
+    background-color: #f2f4f7;
+    font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho SENAI */
+.senai-header {
+    background-color: #003B71;
+    color: white;
+    padding: 20px;
+    border-bottom: 5px solid #E30613;
+}
+
+/* Cartão do formulário */
+.senai-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.senai-title {
+    color: #003B71;
+    font-weight: bold;
+}
+
+/* Botão personalizado */
+.btn-senai {
+    background-color: #003B71;
+    color: white;
+}
+
+.btn-senai:hover {
+    background-color: #002950;
+    color: white;
+}
+
+/* Campos */
+.form-control:focus {
+    border-color: #003B71;
+    box-shadow: 0 0 0 0.2rem rgba(0, 59, 113, 0.15);
+}
+
+/* Campo IMC */
+#imc {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #003B71;
+}
